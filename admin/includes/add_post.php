@@ -1,3 +1,8 @@
+
+
+
+
+
 <?php
 if(isset($_POST['create_post'])){
     $post_title = $_POST['title'];
@@ -13,6 +18,7 @@ if(isset($_POST['create_post'])){
     $post_content = $_POST['post_content'];
     $post_date = date('d-m-y');
     $post_comments_count = 4;
+
 
 
 
@@ -43,12 +49,12 @@ if(isset($_POST['create_post'])){
 
    <div class="form-group">
      <label for="post_category_id">Post Category Id</label>
-     <input type="text" class = "form-control" name="post_category_id">
+     <input  type="text" class = "form-control" name="post_category_id">
    </div>
 
    <div class="form-group">
      <label for="title">Post Author</label>
-     <input type="text" class = "form-control" name="author">
+     <input  type="text" class = "form-control" name="author">
    </div>
 
    <div class="form-group">
@@ -63,13 +69,12 @@ if(isset($_POST['create_post'])){
 
    <div class="form-group">
      <label for="post_tags">Post Tags</label>
-     <input type="text" class = "form-control" name="post_tags">
+     <input  type="text" class = "form-control" name="post_tags">
    </div>
 
    <div class="form-group">
      <label for="post_content">Post Content</label>
-     <textarea class = "form-control" name="post_content" id="" cols="30" rows="10">
-     </textarea>
+     <textarea class = "form-control" name="post_content" id="#555" cols="30" rows="10"></textarea>
    </div>
 
 

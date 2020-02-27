@@ -10,13 +10,12 @@
 
             <div class="container-fluid">
 
+
+
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                      <h1 class="page-header">
-                          Mireserdhet te paneli i Adminit !
-                          <small>Admini</small>
-                      </h1>
+
 <?php
 if(isset($_GET['source'])){
 $source = $_GET['source'];
@@ -28,22 +27,20 @@ switch ($source) {
   case 'add_post':
     include "includes/add_post.php";
     break;
-    case '100':
-      echo "nice 100";
+    case 'edit_post':
+      include "includes/edit_post.php";
       break;
-      case '200':
-        echo "nice 200";
-        break;
+    case 'error':
+      include "includes/error.php";
+      break;
+    case '200':
+      echo "nice 200";
+      break;
 
   default:
     include "includes/view_all_posts.php";
     break;
 }
-
-
-
-
-
  ?>
 
                     </div>
