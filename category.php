@@ -2,8 +2,6 @@
 <?php include "includes/header.php";?>
 
 
-
-
     <!-- Navigation -->
 <?php include "includes/navigation.php"; ?>
 
@@ -11,12 +9,21 @@
     <div class="container">
 
         <div class="row">
-<?php include "carousel.php";?>
+
             <!-- Blog Entries Column -->
 
-
+            <div class="col-md-8">
               <?php
-              $query = "SELECT * FROM posts" ;
+
+              if (isset($_GET['category'])) {
+
+                $post_category_id = $_GET['category'];
+
+
+                // code...
+              }
+
+              $query = "SELECT * FROM posts WHERE post_category_id=$post_category_id " ;
               $select_all_posts_query = mysqli_query($connection,$query);
               while ($row=mysqli_fetch_assoc($select_all_posts_query)) {
                 $post_id = $row['post_id'];
@@ -26,6 +33,9 @@
                 $post_image = $row['post_image'];
                 $post_content = substr($row['post_content'], 0,200);
                 $post_tags = $row['post_tags'];
+
+
+
 
                 ?>
 
@@ -54,13 +64,10 @@
 
 
 
-
 <?php }  ?>
 
 
             </div>
-
-            
 
 
 

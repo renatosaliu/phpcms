@@ -33,12 +33,12 @@ switch ($source) {
     case 'error':
       include "includes/error.php";
       break;
-    // case 'add_carosel':
-    //   include "includes/add_carosel.php";
-    //   break;
+    case '200':
+      echo "nice 200";
+      break;
 
   default:
-    include "includes/view_all_posts.php";
+    include "includes/view_all_comments.php";
     break;
 }
  ?>

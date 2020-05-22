@@ -1,5 +1,6 @@
 <?php ob_start();  ?>
 <?php include "../includes/db.php"; ?>
+<?php session_start(); ?>
 
 
 <!DOCTYPE html>
@@ -33,9 +34,11 @@
 
    <script src="js/jquery.js"></script>
 
-    <script src="https://cdn.ckeditor.com/ckeditor5/17.0.0/classic/ckeditor.js"></script>
-
-
+  <style>
+  .ck-content{
+    min-height:100px;
+  }
+  </style>
 </head>
 
 <body>

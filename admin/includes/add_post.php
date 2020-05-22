@@ -4,10 +4,11 @@
 
 
 <?php
+include "includes/functions.php";
 if(isset($_POST['create_post'])){
     $post_title = $_POST['title'];
     $post_author = $_POST['author'];
-    $post_category_id = $_POST['post_category_id'];
+    $post_category_id = $_POST['post_category'];
     $post_status = $_POST['post_status'];
 
 
@@ -17,7 +18,7 @@ if(isset($_POST['create_post'])){
     $post_tags = $_POST['post_tags'];
     $post_content = $_POST['post_content'];
     $post_date = date('d-m-y');
-    $post_comments_count = 4;
+    // $post_comments_count = 0;
 
 
 
@@ -30,7 +31,7 @@ if(isset($_POST['create_post'])){
     post_date, post_image, post_content, post_tags, post_comments_count, post_status)";
 
     $query .= "VALUES('{$post_category_id}','{$post_title}','{$post_author}',now(),'{$post_image}','{$post_content}',
-    '{$post_tags}','{$post_comments_count}','{$post_status}')";
+    '{$post_tags}','{$post_status}')";
     $create_post_query = mysqli_query($connection,$query);
 
     if(!$create_post_query){
@@ -48,9 +49,33 @@ if(isset($_POST['create_post'])){
    </div>
 
    <div class="form-group">
-     <label for="post_category_id">Post Category Id</label>
-     <input  type="text" class = "form-control" name="post_category_id">
+<label for="post_category">Post Category</label>
+<br>
+     <?php
+      $query = "SELECT * FROM categories";
+      $select_categories = mysqli_query($connection,$query);
+
+     confirmQuery($select_categories);
+      ?>
+     <select name="post_category" id="post_category">
+
+       <?php
+       while($row = mysqli_fetch_assoc($select_categories)){
+         $cat_id = $row['cat_id'];
+         $cat_title = $row['cat_title'];
+
+         echo "<option value = '{$cat_id}'>{$cat_title}</option>";
+
+       }
+       ?>
+
+
+     </select>
+     <br>
+     <!-- <label for="post_category_id"></label>
+     <input value="<?php echo $post_category_id; ?>" type="text" class = "form-control" name="post_category_id"> -->
    </div>
+
 
    <div class="form-group">
      <label for="title">Post Author</label>
@@ -74,7 +99,7 @@ if(isset($_POST['create_post'])){
 
    <div class="form-group">
      <label for="post_content">Post Content</label>
-     <textarea class = "form-control" name="post_content" id="#555" cols="30" rows="10"></textarea>
+     <textarea class = "form-control" name="post_content" id="bodyyy"></textarea>
    </div>
 
 
